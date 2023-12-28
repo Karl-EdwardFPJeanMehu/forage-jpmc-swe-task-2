@@ -1,14 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 declare global {
-  interface Window { perspective: any; }
+  interface Window {
+    perspective: any;
+  }
 }
 
 /**
  * React App attaches the DOM to the DOM element #root in public/index.html
  */
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('root');
+createRoot(container!).render(<App />);
